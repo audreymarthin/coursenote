@@ -1,0 +1,10 @@
+run: CourseNote.o Node.o BinarySearchTree.o main.o
+	g++ CourseNote.o Node.o BinarySearchTree.o main.o -o run
+CourseNote.o: CourseNote.h CourseNote.cpp
+	g++ -c CourseNote.cpp -o CourseNote.o
+Node.o: CourseNote.h Node.h Node.cpp
+	g++ -c Node.cpp -o Node.o
+BinarySearchTree.o: BinarySearchTree.h Node.h BinarySearchTree.cpp
+	g++ -c BinarySearchTree.cpp -o BinarySearchTree.o
+main.o: main.cpp BinarySearchTree.cpp BinarySearchTree.h Node.h Node.cpp CourseNote.h CourseNote.cpp
+	g++ -c main.cpp -o main.o
